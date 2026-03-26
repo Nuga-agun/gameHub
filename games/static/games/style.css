@@ -1,0 +1,88 @@
+:root {
+	--primary-bg-color: black;
+	--secondary-bg-color: #440044;
+	--primary-fg-color: #99FFFF;
+	--secondary-fg-color: #228888;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	background: linear-gradient(var(--primary-bg-color), var(--secondary-bg-color));
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: Arial, sans-serif;
+	padding: 20px;
+}
+
+h1 {
+	background: var(--primary-fg-color);
+	background-clip: text;
+	color: transparent;
+	font-size: 3rem;
+	margin-bottom: 40px;
+	text-align: center;
+	animation: fadeIn 1.2s ease forwards;
+}
+
+main {
+	display: grid;
+	grid-gap: 30px;
+	grid-template-columns: repeat(2, minmax(180px, 1fr));
+	width: 100%;
+	max-width: 600px;
+	perspective: 1000px;
+}
+
+.card {
+	width: 100%;
+	padding-top: 100%;
+	background-size: cover;
+	background-position: center;
+	background-color: var(--secondary-fg-color);
+	border: 3px solid transparent;
+	border-radius: 12px;
+	position: relative;
+	cursor: pointer;
+	transform-style: preserve-3d;
+	transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+	opacity: 0;
+	animation: cardAppear 0.9s ease forwards;
+}
+
+.card:nth-child(1) {animation-delay: 0.2s;}
+.card:nth-child(2) {animation-delay: 0.35s;}
+.card:nth-child(3) {animation-delay: 0.5s;}
+.card:nth-child(4) {animation-delay: 0.65s;}
+
+.card > section {
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.card:hover {
+	border-color: var(--primary-fg-color);
+	box-shadow: 0 0 20px var(--secondary-fg-color);
+	transform: scale(1.25) rotateX(5deg) rotateY(5deg);
+}
+
+@keyframes fadeIn {
+	from	{opacity: 0; transform: translateY(-20px);}
+	to	{opacity: 1; transform: translateY(0);}
+}
+
+@keyframes cardAppear {
+	from	{opacity: 0; scale(0.7); translateY(30px);}
+	to	{opacity: 1; scale(1); translateY(0);}
+}
+
+@media (max-width: 900px) {
+	h1 {font-size: 2.5rem;}
+}
+
+@media (max-width: 600px) {
+	h1 {font-size: 2rem;}
+	main {max-width: 350px;}
+}
