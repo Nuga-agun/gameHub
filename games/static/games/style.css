@@ -27,6 +27,12 @@ h1 {
 	animation: fadeIn 1.2s ease forwards;
 }
 
+h2 {
+	color: var(--secondary-fg-color);
+}
+
+
+/* HUB */
 main {
 	display: grid;
 	grid-gap: 30px;
@@ -68,6 +74,26 @@ main {
 	transform: scale(1.25) rotateX(5deg) rotateY(5deg);
 }
 
+
+/* HalfPix */
+#game-container {
+	width: 800px;
+	height: 800px;
+	border: 3px solid transparent;
+	border-color: var(--primary-fg-color);
+	background-color: var(--primary-bg-color);
+}
+
+#play-button {
+	border: 1px solid transparent;
+	border-radius: 5%;
+}
+
+#play-button:hover {
+	border-color: var(--primary-fg-color);
+}
+
+
 @keyframes fadeIn {
 	from	{opacity: 0; transform: translateY(-20px);}
 	to	{opacity: 1; transform: translateY(0);}
@@ -86,3 +112,5 @@ main {
 	h1 {font-size: 2rem;}
 	main {max-width: 350px;}
 }
+
+
